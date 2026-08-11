@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sunu Ecole - YouTube + PDF</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563EB">
+<style>
+body{font-family:Inter,sans-serif}
+.poppins{font-family:Poppins,sans-serif}
+.phone{box-shadow:0 25px 80px rgba(0,0,0,0.25),0 0 0 12px #111}
+.scroll-hide::-webkit-scrollbar{display:none}
+</style>
+</head>
+<body class="bg-[#EEF2FF] min-h-screen flex flex-col items-center py-6 px-4">
+<div class="max-w-6xl w-full mb-4 flex justify-between items-center">
+<h1 class="poppins text-xl font-bold">Sunu Ecole • YouTube + PDF + APK Ready</h1>
+<span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">PWA READY</span>
+</div>
+<div class="flex gap-8 flex-wrap justify-center items-start w-full max-w-7xl">
+<div class="phone w-[390px] h-[820px] bg-white rounded-[36px] overflow-hidden relative flex flex-col shrink-0">
+<div class="flex-1 flex flex-col relative overflow-hidden" id="app">
+
+<div id="screen-splash" class="screen absolute inset-0 bg-gradient-to-br from-[#3B82F6] to-[#1E3A8A] flex flex-col items-center justify-center z-50">
+<div class="w-24 h-24 bg-white rounded-[24px] flex items-center justify-center shadow-xl text-4xl">📚</div>
+<h1 class="poppins text-white text-3xl font-bold mt-6">Sunu Ecole</h1>
+<p class="text-blue-100 text-xs mt-2 tracking-widest uppercase">YouTube • PDF • APK</p>
+<div class="absolute bottom-12"><div class="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin"></div></div>
+</div>
+
+<div id="screen-welcome" class="screen hidden absolute inset-0 bg-gradient-to-br from-[#3B82F6] to-[#1E3A8A] flex flex-col p-6">
+<div class="flex justify-between items-center"><div class="flex items-center gap-2"><div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center">📚</div><span class="text-white font-bold">Sunu Ecole</span></div><span class="text-white/60 text-xs">v2.0 YouTube+PDF</span></div>
+<div class="flex-1 flex flex-col items-center justify-center text-center"><h1 class="poppins text-white text-[26px] font-bold leading-tight">Bienvenue à<br>Sunu Ecole</h1><p class="text-blue-100 text-sm mt-3">Vrai lecteur YouTube + PDF intégré</p></div>
+<div class="space-y-3 pb-4"><button onclick="go('login')" class="w-full bg-white text-blue-600 font-bold py-4 rounded-2xl">Je suis Élève</button><button onclick="go('teacherDash')" class="w-full bg-white/10 border border-white/30 text-white font-semibold py-4 rounded-2xl">Je suis Enseignant</button></div>
+</div>
+
+<div id="screen-login" class="screen hidden absolute inset-0 bg-white flex flex-col">
+<div class="h-[35%] bg-gradient-to-br from-blue-500 to-blue-800 p-6 relative"><button onclick="go('welcome')" class="w-9 h-9 bg-white/20 rounded-full text-white">←</button><div class="absolute -bottom-10 left-6 right-6 bg-white rounded-[20px] shadow-xl p-5"><h2 class="font-bold">Connexion</h2><p class="text-xs text-slate-400">Avec YouTube & PDF</p></div></div>
+<div class="flex-1 p-6 pt-14 space-y-4"><input class="w-full px-4 py-3.5 bg-slate-50 border rounded-xl text-sm" value="inssa@ecole.sn"><input type="password" class="w-full px-4 py-3.5 bg-slate-50 border rounded-xl text-sm" value="123456"><button onclick="go('dashboard')" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl">Se connecter</button><p class="text-center text-xs">Pas de compte ? <button onclick="go('inscription')" class="text-blue-600 font-bold">Créer</button></p></div>
+</div>
+
+<div id="screen-inscription" class="screen hidden absolute inset-0 bg-white flex flex-col">
+<div class="px-6 pt-6 pb-3 border-b flex items-center gap-3"><button onclick="go('login')" class="w-9 h-9 bg-slate-100 rounded-full">←</button><p class="text-xs font-bold">ÉTAPE 1/2 • 6e→TS/TL</p></div>
+<div class="flex-1 overflow-auto p-6 space-y-3">
+<input class="w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm" placeholder="Nom"><input class="w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm" placeholder="Prénom"><input class="w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm" placeholder="Email">
+<select class="w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm"><option>6ème</option><option>5ème</option><option>4ème</option><option selected>3ème</option><option>2nde S/L</option><option>1ère S/L</option><option>TS</option><option>TL</option><option>TS/TL</option></select>
+<button onclick="go('dashboard')" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl mt-4">S'inscrire</button>
+</div>
+</div>
+
+<div id="screen-dashboard" class="screen hidden absolute inset-0 bg-[#F8FAFC] flex flex-col">
+<div class="px-5 pt-6 pb-4 bg-white flex justify-between"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold">IN</div><div><p class="font-bold text-sm">Bonjour Inssa 👋</p><p class="text-[11px] text-slate-400">1ère S • YouTube+PDF actif</p></div></div><span>🔔</span></div>
+<div class="flex-1 overflow-auto p-5 space-y-4">
+<div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[20px] p-4 text-white flex justify-between"><div><p class="text-xs opacity-70 uppercase">Ma Classe</p><p class="font-bold text-lg">1ère S • 32 cours</p></div><div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">🎓</div></div>
+<div class="grid grid-cols-2 gap-3">
+<button onclick="go('cours')" class="bg-white rounded-2xl p-4 border text-left"><div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">📚</div><p class="font-bold text-sm mt-2">Mes Cours</p><p class="text-[11px] text-slate-400">Vrai YouTube</p></button>
+<button onclick="go('devoirs')" class="bg-white rounded-2xl p-4 border text-left"><div class="w-10 h-10 bg-orange-50 rounded-xl">✏️</div><p class="font-bold text-sm mt-2">Devoirs</p><p class="text-[11px] text-slate-400">PDF joint</p></button>
+<button onclick="go('classement')" class="bg-white rounded-2xl p-4 border text-left"><div class="w-10 h-10 bg-amber-50 rounded-xl">🏆</div><p class="font-bold text-sm mt-2">Classement</p></button>
+<button onclick="go('profil')" class="bg-white rounded-2xl p-4 border text-left"><div class="w-10 h-10 bg-emerald-50 rounded-xl">👤</div><p class="font-bold text-sm mt-2">Profil</p></button>
+</div>
+</div>
+<div class="h-[72px] bg-white border-t flex justify-around items-center px-2">
+<button class="flex flex-col items-center"><span class="text-blue-600">🏠</span><span class="text-[10px] font-bold text-blue-600">Accueil</span></button>
+<button onclick="go('cours')" class="flex flex-col items-center opacity-60"><span>📚</span><span class="text-[10px]">Cours</span></button>
+<button onclick="go('devoirs')" class="flex flex-col items-center opacity-60"><span>✏️</span><span class="text-[10px]">Devoirs</span></button>
+<button onclick="go('profil')" class="flex flex-col items-center opacity-60"><span>👤</span><span class="text-[10px]">Profil</span></button>
+</div>
+</div>
+
+<div id="screen-cours" class="screen hidden absolute inset-0 bg-[#F8FAFC] flex flex-col">
+<div class="px-5 py-4 bg-white border-b flex items-center gap-3"><button onclick="go('dashboard')" class="w-8 h-8 bg-slate-100 rounded-full">←</button><h2 class="font-bold">Mes Cours</h2></div>
+<div class="flex-1 overflow-auto p-4 space-y-3">
+<div onclick="go('lecteur')" class="bg-white rounded-2xl p-4 border flex items-center gap-4 cursor-pointer border-blue-300"><div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">📐</div><div class="flex-1"><p class="font-bold text-sm">Maths - Fonctions</p><p class="text-xs text-slate-400">Vidéo YouTube réelle + PDF</p></div><span class="px-3 py-1.5 bg-blue-600 text-white rounded-full text-xs">YouTube</span></div>
+<div onclick="go('lecteur')" class="bg-white rounded-2xl p-4 border flex items-center gap-4"><div class="w-12 h-12 bg-purple-50 rounded-xl">⚗️</div><div class="flex-1"><p class="font-bold text-sm">PC - Acides</p><p class="text-xs text-slate-400">YouTube + PDF</p></div><span class="px-3 py-1.5 bg-slate-900 text-white rounded-full text-xs">Accéder</span></div>
+<div class="bg-white rounded-2xl p-4 border flex items-center gap-4"><div class="w-12 h-12 bg-emerald-50 rounded-xl">🧬</div><div class="flex-1"><p class="font-bold text-sm">SVT</p><p class="text-xs text-slate-400">Génétique</p></div><span class="px-3 py-1.5 bg-slate-900 text-white rounded-full text-xs">Accéder</span></div>
+</div>
+</div>
+
+<!-- LECTEUR AVEC VRAI YOUTUBE + PDF -->
+<div id="screen-lecteur" class="screen hidden absolute inset-0 bg-black flex flex-col">
+<div class="h-12 flex items-center justify-between px-4 text-white"><button onclick="go('cours')">← Retour</button><span class="text-xs">Chap 1/4 • YouTube + PDF.js</span></div>
+<!-- VRAI YOUTUBE PLAYER -->
+<div class="h-[40%] bg-black relative">
+<iframe id="ytPlayer" class="w-full h-full" src="https://www.youtube.com/embed/kJQP7kiw5Fk?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="flex-1 bg-white rounded-t-[20px] -mt-3 flex flex-col overflow-hidden">
+<div class="flex border-b text-xs font-bold"><button id="tabResume" onclick="switchTab('resume')" class="flex-1 py-3 border-b-2 border-blue-600 text-blue-600">Résumé</button><button id="tabPdf" onclick="switchTab('pdf')" class="flex-1 py-3 text-slate-400">PDF Cours</button><button id="tabExo" onclick="switchTab('exo')" class="flex-1 py-3 text-slate-400">Exos PDF</button></div>
+<div class="flex-1 overflow-auto">
+<div id="tab-resume" class="p-5 space-y-4">
+<h2 class="font-bold">Résumé - Fonctions numériques</h2>
+<p class="text-sm text-slate-500 leading-6">VRAI lecteur YouTube intégré ci-dessus (exemple cours Maths 1ère S). La vidéo est cliquable, plein écran, contrôle volume. En dessous, PDF.js pour lire les cours sans quitter l'app.</p>
+<div class="flex gap-2"><span class="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-bold">📺 YouTube IFrame API</span><span class="px-3 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold">📄 PDF.js</span></div>
+<div class="flex gap-2 pt-4"><button class="flex-1 bg-slate-900 text-white py-3 rounded-xl text-sm font-bold">💬 Commenter</button><button class="flex-1 bg-blue-600 text-white py-3 rounded-xl text-sm font-bold">❓ Question</button></div>
+</div>
+<div id="tab-pdf" class="hidden h-full">
+<div class="p-3 bg-amber-50 border-b flex justify-between items-center text-xs"><span class="font-bold">📄 Cours-Fonctions-1ereS.pdf</span><button onclick="downloadPDF()" class="px-3 py-1 bg-slate-900 text-white rounded-full">⬇️ Télécharger</button></div>
+<iframe class="w-full h-[400px]" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" frameborder="0"></iframe>
+<p class="text-[11px] text-slate-400 p-3 text-center">PDF.js viewer intégré - remplace l'URL par ton PDF sur ton serveur / Firebase Storage</p>
+</div>
+<div id="tab-exo" class="hidden h-full">
+<div class="p-3 bg-blue-50 border-b flex justify-between text-xs"><span class="font-bold">📊 Exercices-Fonctions.pdf</span><button class="px-3 py-1 bg-blue-600 text-white rounded-full">⬇️</button></div>
+<iframe class="w-full h-[400px]" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://www.orimi.com/pdf-test.pdf" frameborder="0"></iframe>
+</div>
+</div>
+</div>
+</div>
+
+<div id="screen-devoirs" class="screen hidden absolute inset-0 bg-[#F8FAFC] flex flex-col"><div class="px-5 py-4 bg-white border-b flex items-center gap-3"><button onclick="go('dashboard')" class="w-8 h-8 bg-slate-100 rounded-full">←</button><h2 class="font-bold">Devoirs</h2></div><div class="flex-1 p-4 space-y-3"><div class="bg-white rounded-2xl p-4 border-l-4 border-l-orange-500"><p class="font-bold text-sm">Exo Fonctions - Avec PDF</p><p class="text-xs text-slate-400">Maths • 15 Août • Joint: Exos.pdf</p></div></div></div>
+<div id="screen-classement" class="screen hidden absolute inset-0 bg-white flex flex-col"><div class="px-5 py-4 border-b flex items-center gap-3"><button onclick="go('dashboard')" class="w-8 h-8 bg-slate-100 rounded-full">←</button><h2 class="font-bold">Classement</h2></div><div class="bg-gradient-to-br from-amber-400 to-orange-500 p-5 text-white flex justify-center gap-4"><div class="text-center"><div class="w-14 h-14 bg-white/20 rounded-full"></div><p class="text-xs mt-1">92%</p></div><div class="text-center"><div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-orange-600 font-bold">IN</div><p class="text-sm font-bold">96%</p></div><div class="text-center"><div class="w-14 h-14 bg-white/20 rounded-full"></div><p class="text-xs">89%</p></div></div></div>
+<div id="screen-profil" class="screen hidden absolute inset-0 bg-white flex flex-col"><div class="px-5 py-4 border-b flex items-center gap-3"><button onclick="go('dashboard')" class="w-8 h-8 bg-slate-100 rounded-full">←</button><h2 class="font-bold">Profil</h2></div><div class="flex-1 p-5"><div class="bg-white rounded-2xl p-6 border text-center"><div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mx-auto flex items-center justify-center text-white font-bold">IN</div><p class="font-bold mt-3">Inssa</p><p class="text-xs text-slate-400">1ère S</p></div><button onclick="go('welcome')" class="w-full mt-6 bg-red-50 text-red-600 font-bold py-4 rounded-xl border">Déconnexion</button></div></div>
+<div id="screen-teacherDash" class="screen hidden absolute inset-0 bg-[#F8FAFC] flex flex-col"><div class="px-5 py-4 bg-slate-900 text-white flex justify-between"><h2 class="font-bold">Dashboard Prof • YouTube + PDF</h2><button onclick="go('welcome')" class="text-xs">↩️</button></div><div class="flex-1 p-5 space-y-4"><div class="grid grid-cols-3 gap-3"><div class="bg-white p-4 rounded-2xl border text-center"><p class="text-2xl font-bold">24</p><p class="text-[10px] text-slate-400">Cours</p></div><div class="bg-white p-4 rounded-2xl border text-center"><p class="text-2xl font-bold">312</p><p class="text-[10px]">Élèves</p></div><div class="bg-amber-50 p-4 rounded-2xl border text-center"><p class="text-2xl font-bold text-amber-600">8</p><p class="text-[10px]">À corriger</p></div></div><div class="bg-white rounded-2xl p-4 border"><p class="font-bold text-sm">Créer cours avec YouTube</p><input class="w-full mt-3 p-3 bg-slate-50 border rounded-xl text-sm" placeholder="Titre"><input class="w-full mt-2 p-3 bg-slate-50 border rounded-xl text-sm" placeholder="URL YouTube https://youtu.be/..."><input class="w-full mt-2 p-3 bg-slate-50 border rounded-xl text-sm" placeholder="Lien PDF"><button class="w-full mt-3 bg-blue-600 text-white font-bold py-3 rounded-xl">Publier avec YouTube + PDF</button></div></div></div>
+
+</div>
+</div>
+
+<div class="flex-1 min-w-[320px] max-w-[520px] space-y-4">
+<div class="bg-white rounded-2xl p-5 border shadow-sm">
+<h3 class="font-bold">✅ Version YouTube + PDF intégrée</h3>
+<ul class="mt-3 space-y-2 text-sm text-slate-600">
+<li>• <b>YouTube IFrame API</b> réelle: lecteur cliquable, plein écran, dans l'app</li>
+<li>• <b>PDF.js Mozilla viewer</b> intégré: lit les PDF sans quitter l'app, avec zoom, téléchargement</li>
+<li>• Onglets Résumé / PDF Cours / Exos PDF comme demandé</li>
+<li>• Pour ton backend: remplace juste les URLs YouTube et PDF par tes liens Firebase/Supabase</li>
+</ul>
+<pre class="mt-4 p-3 bg-slate-900 text-slate-100 rounded-xl text-[11px] overflow-auto">
+&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"&gt;&lt;/iframe&gt;
+&lt;iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=TON_PDF.pdf"&gt;&lt;/iframe&gt;
+</pre>
+</div>
+
+<div class="bg-slate-900 rounded-2xl p-5 text-white">
+<h3 class="font-bold">📦 Version APK - Comment builder</h3>
+<ol class="mt-3 space-y-2 text-sm text-slate-300 list-decimal list-inside">
+<li>Télécharge ce dossier PWA complet ci-dessous</li>
+<li>Va sur <b class="text-white">pwabuilder.com</b> → colle l'URL de ton site (héberge ce HTML sur Netlify/Vercel)</li>
+<li>Clique "Build My PWA" → Android → Télécharge APK</li>
+<li>OU avec Android Studio: Nouveau projet WebView → loadUrl("file:///android_asset/sunu-ecole.html")</li>
+</ol>
+<div class="mt-4 flex gap-2">
+<a href="manifest.json" download class="px-3 py-2 bg-white text-slate-900 rounded-full text-xs font-bold">manifest.json</a>
+<a href="sunu-ecole-complete.html" download class="px-3 py-2 bg-white/20 border border-white/30 rounded-full text-xs">HTML PWA</a>
+</div>
+</div>
+
+<div class="bg-blue-600 rounded-2xl p-5 text-white">
+<p class="font-bold">Les deux fichiers sont prêts:</p>
+<p class="text-sm text-blue-100 mt-2">1. Ce fichier avec YouTube+PDF réel<br>2. Le fichier précédent complet + ce guide APK</p>
+<button onclick="go('lecteur')" class="mt-4 px-4 py-2 bg-white text-blue-600 rounded-full text-xs font-bold">Tester YouTube + PDF maintenant →</button>
+</div>
+</div>
+</div>
+
+<script>
+function go(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));
+const el=document.getElementById('screen-'+id);
+if(el) el.classList.remove('hidden');
+}
+function switchTab(t){
+document.getElementById('tab-resume').classList.add('hidden');
+document.getElementById('tab-pdf').classList.add('hidden');
+document.getElementById('tab-exo').classList.add('hidden');
+document.getElementById('tabResume').classList.remove('border-blue-600','text-blue-600');
+document.getElementById('tabPdf').classList.remove('border-blue-600','text-blue-600');
+document.getElementById('tabExo').classList.remove('border-blue-600','text-blue-600');
+document.getElementById('tabResume').classList.add('text-slate-400');
+document.getElementById('tabPdf').classList.add('text-slate-400');
+document.getElementById('tabExo').classList.add('text-slate-400');
+document.getElementById('tab-'+t).classList.remove('hidden');
+document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('border-blue-600','text-blue-600');
+document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)).classList.remove('text-slate-400');
+}
+function downloadPDF(){window.open('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf','_blank');}
+setTimeout(()=>go('welcome'),2000);
+go('splash');
+</script>
+</body>
+</html>
